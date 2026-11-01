@@ -1,0 +1,31 @@
+<mxfile host="Electron" modified="2026-11-01T06:32:45.185Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="37dEnrdXhqDT1eVTiCjz" version="22.1.2" type="device">
+  <diagram name="第 1 页" id="gmKQgGIyeemSGGnJo81R">
+    <mxGraphModel dx="1224" dy="1943" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="60" y="-230" width="610" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-5" value="操作系统如何把磁盘文件的数据读入内存？" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="232.5" y="-220" width="265" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-6" value="第一个阶段：用户调用read&lt;br&gt;第二个阶段：从用户态到内核态&lt;br&gt;第三个阶段：根据文件描述符找到文件对象，注意文件偏移量&lt;br&gt;第四个阶段：读取数据：1，数据在页缓存 2，数据不在页缓存" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="125" y="-170" width="480" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-7" value="&lt;h1&gt;文件偏移量&lt;/h1&gt;&lt;p&gt;文件偏移量代表了，文件当前读写到了什么位置，是随时更新的&lt;/p&gt;" style="text;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="800" y="-230" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-8" value="&lt;h1&gt;短读&lt;/h1&gt;&lt;p&gt;read函数的含义是最多读取多少个字节，而不是必须读多少个字节&lt;br&gt;正确读法:&lt;/p&gt;&lt;p&gt;#include &amp;lt;unistd.h&amp;gt;&lt;/p&gt;&lt;p&gt;#include &amp;lt;errno.h&amp;gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;ssize_t ReadFully(int fd, char *buffer, size_t size)&lt;/p&gt;&lt;p&gt;{&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; size_t total_read = 0;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; while (total_read &amp;lt; size)&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; {&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ssize_t n = read(&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fd,&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; buffer + total_read,&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; size - total_read&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; );&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; if (n &amp;gt; 0)&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; total_read += n;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; else if (n == 0)&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; // 文件提前结束&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; break;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; else&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; if (errno == EINTR)&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; {&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; // 被信号中断，重新尝试&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; continue;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; return -1;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; }&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; }&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp; &amp;nbsp; return (ssize_t)total_read;&lt;/p&gt;&lt;p&gt;}&lt;/p&gt;" style="text;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="790" y="-100" width="420" height="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-9" value="&lt;h1&gt;write函数&lt;/h1&gt;&lt;p&gt;write成功不意味着数据成功落盘，需要手动调用fsync，打开写入的文件偏移量会移动到文件末尾&lt;/p&gt;" style="text;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="-230" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="GOr0yKlsGHW5FGvma5Si-10" value="&lt;h1&gt;文件描述符、内核文件对象、文件偏移量之间是什么关系？&lt;br&gt;&lt;/h1&gt;&lt;p&gt;在内核中维护了文件描述符对内核文件文件对象的关系，文件描述符是一个int值，相当于索引，文件偏移量是内核文件对象的一个字段&lt;/p&gt;" style="text;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="224" width="466" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
