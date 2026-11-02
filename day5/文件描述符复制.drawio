@@ -1,0 +1,125 @@
+<mxfile host="Electron" modified="2026-11-02T07:30:16.157Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="FJEmToExNAZ3X7BtzVOL" version="22.1.2" type="device" pages="3">
+  <diagram name="open file" id="3eE2u8PFv1xqMM0_az24">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9Eopt8kEZ8URhNxV0ltC-1" target="9Eopt8kEZ8URhNxV0ltC-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-1" value="在进程的task_strcut里面的files_strcut结构体里有一个文件描述符表" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="210" y="140" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-2" value="linux进程打开文件" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="395" y="140" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9Eopt8kEZ8URhNxV0ltC-3" target="9Eopt8kEZ8URhNxV0ltC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-3" value="文件描述符表里面包含了很多个int值，代表文件的索引，指向一个一个的struct_file对象" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="210" y="340" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-4" value="fd_tables" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="340" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9Eopt8kEZ8URhNxV0ltC-5" target="9Eopt8kEZ8URhNxV0ltC-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-5" value="struct_file里面包含了&lt;br&gt;f_pos文件偏移量&lt;br&gt;...&lt;br&gt;in_node文件系统文件对象" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="210" y="540" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-6" value="struct_file" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="540" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-7" value="in_node包含了文件元数据，大小，权限==" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="210" y="740" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9Eopt8kEZ8URhNxV0ltC-8" value="in_node" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="420" y="740" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="iW-dQxP05PMIgu40NpvK" name="dup">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="o6IffYUnac6_GiOQ5tM8-1" target="o6IffYUnac6_GiOQ5tM8-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-1" value="dup" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="229" y="130" width="370" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="o6IffYUnac6_GiOQ5tM8-2" target="o6IffYUnac6_GiOQ5tM8-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-2" value="fd:4" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-3" value="fd:5" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="o6IffYUnac6_GiOQ5tM8-6" target="o6IffYUnac6_GiOQ5tM8-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-6" value="1，引用计数=2&lt;br&gt;2，共享文件偏移量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="229" y="330" width="371" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-8" value="struct file" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-9" value="dup之后指向共同的struct file" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="414" y="270" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-10" value="共同的inode" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="229.5" y="525" width="371" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="o6IffYUnac6_GiOQ5tM8-12" value="inode" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="384" y="525" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="fork" id="9S4mVh43GfMC5XYvmK7P">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-0" />
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-1" parent="DTd7-oGNJhNwwm1ZjTDf-0" />
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="DTd7-oGNJhNwwm1ZjTDf-1" source="DTd7-oGNJhNwwm1ZjTDf-3" target="DTd7-oGNJhNwwm1ZjTDf-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-3" value="fork" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="229" y="130" width="370" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="DTd7-oGNJhNwwm1ZjTDf-1" source="DTd7-oGNJhNwwm1ZjTDf-5" target="DTd7-oGNJhNwwm1ZjTDf-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-5" value="fd:4" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="270" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-6" value="fd:4" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="510" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="DTd7-oGNJhNwwm1ZjTDf-1" source="DTd7-oGNJhNwwm1ZjTDf-8" target="DTd7-oGNJhNwwm1ZjTDf-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-8" value="1，引用计数=2&lt;br&gt;2，共享文件偏移量" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="229" y="330" width="371" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-9" value="struct file" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="385" y="330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-10" value="fork之后父子进程有独立的文件描述符表，单指向共同的struct file" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="414" y="270" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-11" value="共同的inode" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="229.5" y="525" width="371" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DTd7-oGNJhNwwm1ZjTDf-12" value="inode" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DTd7-oGNJhNwwm1ZjTDf-1">
+          <mxGeometry x="384" y="525" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
