@@ -1,22 +1,22 @@
-<mxfile host="Electron" modified="2026-10-30T13:23:38.696Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="yl_i_MD0-VewMQ7v3uQr" version="22.1.2" type="device">
+<mxfile host="Electron" modified="2026-10-30T13:54:21.287Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="SPmsmYs3fBdMHEczvORX" version="22.1.2" type="device">
   <diagram name="文件描述符表" id="HfK5kzIy_xCc43aWyowW">
-    <mxGraphModel dx="1224" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1224" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="eEaYhIVkyqTbHq28W-AG-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="eEaYhIVkyqTbHq28W-AG-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="110" y="80" width="530" height="430" as="geometry" />
         </mxCell>
-        <mxCell id="eEaYhIVkyqTbHq28W-AG-3" value="process task_struct:进程管理结构" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="eEaYhIVkyqTbHq28W-AG-3" value="process task_struct:进程管理结构" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="180" y="100" width="390" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eEaYhIVkyqTbHq28W-AG-4" value="process files_struct:进程的文件描述符管理结构" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="eEaYhIVkyqTbHq28W-AG-4" value="process files_struct:进程的文件描述符管理结构" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="180" y="200" width="390" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eEaYhIVkyqTbHq28W-AG-5" value="fstruct fdtable fd&lt;span style=&quot;background-color: initial;&quot;&gt;[NUM]:文件描述符表&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="eEaYhIVkyqTbHq28W-AG-5" value="struct fdtable fd&lt;span style=&quot;background-color: initial;&quot;&gt;[NUM]:文件描述符表&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="180" y="300" width="390" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eEaYhIVkyqTbHq28W-AG-6" value="struct file:&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;当前文件的访问状态&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;文件访问模式&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;当前文件偏移量&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;文件操作函数&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;对底层文件对象的引用。&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="eEaYhIVkyqTbHq28W-AG-6" value="struct file:&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;当前文件的访问状态&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;文件访问模式&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;当前文件偏移量&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;文件操作函数&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;对底层文件对象的引用。&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="180" y="400" width="390" height="90" as="geometry" />
         </mxCell>
       </root>
