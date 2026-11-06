@@ -1,0 +1,126 @@
+<mxfile host="Electron" modified="2026-11-06T02:52:46.061Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="354ZBuDccs7lB64h9LrY" version="22.1.2" type="device" pages="5">
+  <diagram name="inode到底是什么" id="NobHcUMoZztrlNoanfSj">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dDH7GlAEF0TPFqQrNAoG-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="310" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="dDH7GlAEF0TPFqQrNAoG-2" value="文件名：hello.txt&lt;br&gt;文件名与inode的映射" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="307.5" y="130" width="195" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dDH7GlAEF0TPFqQrNAoG-3" value="inode编号：12345&lt;br&gt;记录文件数据块，元数据等" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="307.5" y="280" width="195" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dDH7GlAEF0TPFqQrNAoG-4" value="data blocks ：数据块&lt;br&gt;真正存储文件的磁盘区域" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="307.5" y="430" width="195" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dDH7GlAEF0TPFqQrNAoG-5" value="一个inode可以被多个文件名引用" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="670" y="100" width="240" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fAZgc34p3iAMhyblwHkW" name="inode中保存了什么">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kSj_Ymn4BCOkXzbFFeoJ-1" value="&lt;div&gt;struct stat {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; dev_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_dev;&amp;nbsp; &amp;nbsp; &amp;nbsp;// 文件所在设备&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ino_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_ino;&amp;nbsp; &amp;nbsp; &amp;nbsp;// inode 编号&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; mode_t&amp;nbsp; &amp;nbsp; st_mode;&amp;nbsp; &amp;nbsp; // 文件类型和权限&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; nlink_t&amp;nbsp; &amp;nbsp;st_nlink;&amp;nbsp; &amp;nbsp;// 硬链接数量&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uid_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_uid;&amp;nbsp; &amp;nbsp; &amp;nbsp;// 用户 ID&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; gid_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_gid;&amp;nbsp; &amp;nbsp; &amp;nbsp;// 组 ID&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; dev_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_rdev;&amp;nbsp; &amp;nbsp; // 设备文件的设备号&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; off_t&amp;nbsp; &amp;nbsp; &amp;nbsp;st_size;&amp;nbsp; &amp;nbsp; // 文件大小&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; blksize_t st_blksize; // 推荐 I/O 块大小&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; blkcnt_t&amp;nbsp; st_blocks;&amp;nbsp; // 已分配的块数量&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; time_t&amp;nbsp; &amp;nbsp; st_atime;&amp;nbsp; &amp;nbsp;// 最后访问时间&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; time_t&amp;nbsp; &amp;nbsp; st_mtime;&amp;nbsp; &amp;nbsp;// 最后修改时间&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; time_t&amp;nbsp; &amp;nbsp; st_ctime;&amp;nbsp; &amp;nbsp;// 最后状态改变时间&lt;/div&gt;&lt;div&gt;};&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="70" y="90" width="260" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Zn1wfZf1gpT1mylTaTij" name="inode和数据块的关系">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="220" y="170" width="440" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-2" value="inode:12345&lt;br&gt;size:10000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="380" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-3" value="block:0&lt;br&gt;4096" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="241" y="285" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-4" value="block:1&lt;br&gt;4096" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="380" y="285" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-5" value="block:2&lt;br&gt;1808" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="520" y="285" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0XCJXN2jE7YvzQ7kmRFt-6" value="&lt;div&gt;inode&lt;/div&gt;&lt;div&gt;&amp;nbsp; |&lt;/div&gt;&lt;div&gt;&amp;nbsp; v&lt;/div&gt;&lt;div&gt;Extent Tree&lt;/div&gt;&lt;div&gt;&amp;nbsp; |&lt;/div&gt;&lt;div&gt;&amp;nbsp; +---- 逻辑块 0~9&amp;nbsp; -&amp;gt; 物理块 100~109&lt;/div&gt;&lt;div&gt;&amp;nbsp; |&lt;/div&gt;&lt;div&gt;&amp;nbsp; +---- 逻辑块 10~19 -&amp;gt; 物理块 300~309&lt;/div&gt;&lt;div&gt;&amp;nbsp; |&lt;/div&gt;&lt;div&gt;&amp;nbsp; +---- 逻辑块 20~29 -&amp;gt; 物理块 500~509&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="280" height="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Kq6RFkGdV4JKwA7hF_Eq" name="删除过程">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="330" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-2" value="创建文件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-3" value="打开文件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-4" value="删除文件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-5" value="文件仍然被打开" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-6" value="关闭文件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GDBHlW39h0ZKQw9VY5Sd-7" value="回收inode和数据块" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="MrnINKnhkLfP3Qr8vXTo" name="完整的关系图">
+    <mxGraphModel dx="1224" dy="774" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CCsj__G8pDdDkDDM7UcR-1" target="CCsj__G8pDdDkDDM7UcR-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-1" value="进程 fd = 3&lt;br&gt;文件描述符表中的索引" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="294" y="120" width="286" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CCsj__G8pDdDkDDM7UcR-2" target="CCsj__G8pDdDkDDM7UcR-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-2" value="struct file&lt;br&gt;文件偏移，打开模式==" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="294" y="310" width="286" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CCsj__G8pDdDkDDM7UcR-3" target="CCsj__G8pDdDkDDM7UcR-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-3" value="struct dentry&lt;br&gt;路径名查找得到的目录对象" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="294" y="500" width="286" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CCsj__G8pDdDkDDM7UcR-5" target="CCsj__G8pDdDkDDM7UcR-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-5" value="inode&lt;br&gt;文件元数据，类型，权限==" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="294" y="700" width="286" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="CCsj__G8pDdDkDDM7UcR-6" value="文件系统的数据映射" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="294" y="920" width="286" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
