@@ -1,0 +1,19 @@
+<mxfile host="Electron" modified="2026-11-13T01:18:59.305Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="1i7m73KRUh2Wa04cryUn" version="22.1.2" type="device">
+  <diagram name="page内存布局" id="mnG1hMGHxt4uHI7JlZdL">
+    <mxGraphModel dx="1224" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8oLOhdTQ0yZ4LRTZ92zb-6" value="PageHeader" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="520" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="8oLOhdTQ0yZ4LRTZ92zb-7" value="+ uint32_t magic //页面格式标记&lt;br&gt;+ uint32_t page_id //页号&lt;br&gt;+ uint16_t page_type //page类型&lt;br&gt;+ uint16_t format_version //格式版本&lt;br&gt;+ uint32_t flags //页面状态标记&lt;br&gt;+ uint32_t free_space&lt;br&gt;+ uint32_t checksum&lt;br&gt;+ uint32_t reserved" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="8oLOhdTQ0yZ4LRTZ92zb-6">
+          <mxGeometry y="26" width="520" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="8oLOhdTQ0yZ4LRTZ92zb-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="8oLOhdTQ0yZ4LRTZ92zb-6">
+          <mxGeometry y="160" width="520" height="8" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

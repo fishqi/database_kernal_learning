@@ -1,0 +1,67 @@
+<mxfile host="Electron" modified="2026-11-14T07:52:55.135Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="2eHVNU-alP-em-iXO_QR" version="22.1.2" type="device" pages="2">
+  <diagram name="结构图" id="wIRkZlgrm_KyyPP_pckz">
+    <mxGraphModel dx="2051" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SyKLCdZqjx7tMDuc2uii-1" value="page_header" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="210" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SyKLCdZqjx7tMDuc2uii-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SyKLCdZqjx7tMDuc2uii-2" target="SyKLCdZqjx7tMDuc2uii-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SyKLCdZqjx7tMDuc2uii-2" value="page_data指针" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="310" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SyKLCdZqjx7tMDuc2uii-3" value="buffer:4096字节内存" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="310" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SyKLCdZqjx7tMDuc2uii-5" value="指向" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="310" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="CNC2Pt9Jkl_UmCfR8n8T" name="类图">
+    <mxGraphModel dx="2051" dy="771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-1" value="Classname" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="90" width="440" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-2" value="+ char *m_data;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="uhAuZxf3VjnhIwjsi8jK-1">
+          <mxGeometry y="26" width="440" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="uhAuZxf3VjnhIwjsi8jK-1">
+          <mxGeometry y="120" width="440" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-4" value="&lt;pre dir=&quot;ltr&quot;&gt;&lt;code&gt; // 构造函数&lt;br&gt; explicit Page(char* buffer);&lt;br&gt; // 初始化 Page&lt;br&gt; void Init(unsigned int page_id, PageType type);&lt;br&gt; // 获取 Page ID&lt;br&gt; unsigned int GetPageId() const;&lt;br&gt; // 设置 Page ID&lt;br&gt; void SetPageId(unsigned int page_id);&lt;br&gt; // 获取 Page 类型&lt;br&gt; PageType GetPageType() const;&lt;br&gt; // 设置 Page 类型&lt;br&gt; void SetPageType(PageType type);&lt;br&gt; // 获取 Page 数据区域&lt;br&gt; char* GetData();&lt;br&gt; const char* GetData() const;&lt;br&gt; // 获取 Page 数据区域大小&lt;br&gt; unsigned int GetDataSize() const;&lt;br&gt; // 清空 Page&lt;br&gt; void Reset();&lt;br&gt; // 检查 Page 是否有效&lt;br&gt; bool IsValid() const;&lt;/code&gt;&lt;/pre&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="uhAuZxf3VjnhIwjsi8jK-1">
+          <mxGeometry y="128" width="440" height="332" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.255;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="uhAuZxf3VjnhIwjsi8jK-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="139.97000000000003" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-7" value="&lt;pre dir=&quot;ltr&quot;&gt;&lt;code&gt;enum PageType&lt;br&gt;{&lt;br&gt;    PAGE_TYPE_INVALID = 0,&lt;br&gt;    PAGE_TYPE_DATA = 1,&lt;br&gt;    PAGE_TYPE_SLOT = 2,&lt;br&gt;    PAGE_TYPE_META = 3,&lt;br&gt;    PAGE_TYPE_INDEX = 4&lt;br&gt;};&lt;/code&gt;&lt;/pre&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;align=left;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="210" width="190" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-8" value="PageHeader" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="520" height="168" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="uhAuZxf3VjnhIwjsi8jK-8" source="uhAuZxf3VjnhIwjsi8jK-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-80" y="93" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-9" value="+ uint32_t magic //页面格式标记&lt;br&gt;+ uint32_t page_id //页号&lt;br&gt;+ uint16_t page_type //page类型&lt;br&gt;+ uint16_t format_version //格式版本&lt;br&gt;+ uint32_t flags //页面状态标记&lt;br&gt;+ uint32_t free_space&lt;br&gt;+ uint32_t checksum&lt;br&gt;+ uint32_t reserved" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="uhAuZxf3VjnhIwjsi8jK-8">
+          <mxGeometry y="26" width="520" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="uhAuZxf3VjnhIwjsi8jK-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="uhAuZxf3VjnhIwjsi8jK-8">
+          <mxGeometry y="160" width="520" height="8" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
