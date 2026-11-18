@@ -26,7 +26,7 @@ typedef struct page_header_st
     uint32_t flags; //页面状态标记
     uint32_t free_space;
     uint32_t checksum;
-    uint32_t reserved;
+    uint32_t reserved[2];
 }page_header_t;
 
 class Page {
@@ -58,7 +58,17 @@ public:
     int WriteBytes(const void *data, int offset, int size);
     //读取字节
     int ReadBytes(void *data, int offset, int size);
+    //写磁盘
+    int WritePage(int fd, int page_id);
+    //读磁盘
+    int ReadPage(int fd, int page_id);
 private:
+    //序列化
+    int SerializePage(char *data);
+    //反序列化
+    int DeSerializePage(const char *data);
+private:
+    page_header_t m_header;
     char *m_data;
 };
 
