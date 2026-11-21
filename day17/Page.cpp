@@ -71,6 +71,7 @@ unsigned int Page::GetDataSize() const {
 }
 
 void Page::Reset() {
+    if(NULL == m_data) return;
     memset(m_data, 0, PAGE_DATA_SIZE);
 }
 
