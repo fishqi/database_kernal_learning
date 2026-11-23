@@ -27,6 +27,11 @@ int SlotPage::Init(Page *page) {
 }
 
 int SlotPage::InsertData(const char *key, int key_size, const char *value, int value_size) {
+    //参数检查
+    if(NULL==key || NULL == value || key_size<=0 || value_size<0) {
+        return  -1;
+    }
+
     //读取slot_page_header
     slot_page_header_t header;
     memcpy(&header, m_page->GetData()+PAGE_HEADER_SIZE, sizeof(slot_page_header_t));
@@ -36,12 +41,7 @@ int SlotPage::InsertData(const char *key, int key_size, const char *value, int v
     uint16_t require_size = record_size + sizeof(slot_t);
     uint16_t free_space = header.upper-header.lower;
     if(require_size > free_space) return -1;
-    
-    //设置slot
-    slot_t slot;
-    slot.offset = header.upper-record_size;
-    slot.length = record_size;
-   
+     
     //序列化数据
     char *data = (char *)malloc(record_size);
     int ret = SerializeData(key, key_size, value, value_size, data);
@@ -51,22 +51,28 @@ int SlotPage::InsertData(const char *key, int key_size, const char *value, int v
         return -1;
     }
 
+    //设置slot
+    slot_t slot;
+    slot.offset = header.upper-record_size;
+    slot.length = record_size;
+    
     //先写data数据
     ret = m_page->WriteBytes(data, slot.offset, slot.length);
     free(data);
     data = NULL;
-    if(ret <= 0) return -1;
+    if(-1 == ret) {
+        return -1;
+    }
 
     //写入slot数据
     memcpy(m_page->GetData()+header.lower, &slot, sizeof(slot_t));
     int slot_id = header.slot_count;
-
     //更新header
     header.slot_count++;
     header.lower += sizeof(slot_t);
     header.upper -= slot.length;
     memcpy(m_page->GetData()+PAGE_HEADER_SIZE, &header, sizeof(slot_page_header_t));
-   
+
     //更新剩余空间 
     m_page->SetFreeSpace(free_space-require_size);
 
@@ -74,18 +80,29 @@ int SlotPage::InsertData(const char *key, int key_size, const char *value, int v
 }
 
 int SlotPage::ReadData(unsigned int slot_id, char *key, int &key_size, char *value, int &value_size) {
-    off_t slot_offset = slot_id*sizeof(slot_t)+PAGE_HEADER_SIZE + SLOT_PAGE_HEADER_SIZE;
-    char *data = m_page->GetData();
+    if(NULL==key || NULL==value) return -1;
+
     slot_t slot;
-    memcpy(&slot.offset, data+slot_offset, sizeof(uint32_t));
-    memcpy(&slot.length, data+slot_offset+sizeof(uint32_t), sizeof(uint32_t));
+    int ret = GetSlot(slot_id, &slot);
+    if(-1 == ret) return -1;
+    char *data = m_page->GetData();
+    if(NULL==data) return -1; 
+    ret = DeSerializeData(key, key_size, value, value_size, data+slot.offset);
     
-    int ret = DeSerializeData(key, key_size, value, value_size, data+slot.offset);
     return ret;
 }
 
-slot_t* GetSlot(int slot_id) {
-    return NULL;
+int SlotPage::GetSlot(int slot_id, slot_t* slot) {
+    slot_page_header_t header;
+    memcpy(&header, m_page->GetData()+PAGE_HEADER_SIZE, sizeof(slot_page_header_t));
+    if(slot_id<0 || slot_id>=header.slot_count) return -1;
+
+    off_t slot_offset = slot_id*sizeof(slot_t)+PAGE_HEADER_SIZE + SLOT_PAGE_HEADER_SIZE;
+    char *data = m_page->GetData();
+    if(NULL==data) return -1;
+    memset(slot, 0, sizeof(slot_t));
+    memcpy(slot, data+slot_offset, sizeof(slot_t));
+    return 0;
 }
 
 int SlotPage::SerializeData(const char *key, int key_size, const char *value, int value_size, char *data) {

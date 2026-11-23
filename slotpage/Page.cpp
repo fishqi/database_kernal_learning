@@ -5,12 +5,8 @@
 #include <sys/types.h>
 
 Page::Page(char* buffer) {
-    if(NULL != buffer) {
-        m_data = buffer;
-    }else {
-        m_data = NULL;
-    }
-    memset(&m_data, 0, PAGE_SIZE);
+    m_data = buffer;
+    memset(m_data, 0, PAGE_SIZE);
 }
 
 Page::~Page() {
@@ -18,7 +14,10 @@ Page::~Page() {
 }
 
 void Page::Init(unsigned int page_id, PAGE_TYPE type) {
-    if(NULL == m_data) return;
+    if(NULL == m_data)  {
+        printf("data is null\n");
+        return;
+    }
     if(sizeof(page_header_t) != PAGE_HEADER_SIZE) return;
 
     memset(m_data, 0, PAGE_SIZE);//初始化内存
@@ -30,7 +29,6 @@ void Page::Init(unsigned int page_id, PAGE_TYPE type) {
     header.flags = 1;
     header.free_space = PAGE_DATA_SIZE;
     
-    //memset(m_header.reserved, 0, sizeof(m_header.reserved));
     memcpy(m_data, &header, sizeof(page_header_t));
 }
 
@@ -135,7 +133,9 @@ bool Page::IsValid() const {
 
 int Page::WriteBytes(const void *data, int offset, int size) {
     if(NULL==data || size<=0) return -1;
-    if(offset>PAGE_DATA_SIZE || PAGE_DATA_SIZE-offset<size) return -1;
+    if(offset>PAGE_SIZE || PAGE_SIZE-offset<size) {
+        return -1;
+    }
     
     memcpy(m_data+offset, data, size); 
     return 0;
@@ -143,7 +143,7 @@ int Page::WriteBytes(const void *data, int offset, int size) {
 
 int Page::ReadBytes(void *data, int offset, int size) {
     if(NULL==data || size<=0) return -1;
-    if(offset>PAGE_DATA_SIZE || PAGE_DATA_SIZE-offset<size) return -1;
+    if(offset>PAGE_SIZE || PAGE_SIZE-offset<size) return -1;
     
     memcpy(data, m_data+offset, size);
     return 0;
