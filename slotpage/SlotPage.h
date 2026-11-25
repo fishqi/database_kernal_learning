@@ -23,6 +23,7 @@ public:
     int Init(Page *page);
     int InsertData(const char *key, int key_size, const char *value, int value_size);
     int ReadData(unsigned int slot_id, char *key, int &key_size, char *value, int &value_size);
+    int FindKey(const char *key, int key_size, char *value, int &value_size);
     int GetSlot(int slot_id, slot_t* slot);
 private:
     int SerializeData(const char *key, int key_size, const char *value, int value_size, char *data);

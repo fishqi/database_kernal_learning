@@ -86,10 +86,31 @@ int SlotPage::ReadData(unsigned int slot_id, char *key, int &key_size, char *val
     int ret = GetSlot(slot_id, &slot);
     if(-1 == ret) return -1;
     char *data = m_page->GetData();
-    if(NULL==data) return -1; 
     ret = DeSerializeData(key, key_size, value, value_size, data+slot.offset);
     
     return ret;
+}
+
+int SlotPage::FindKey(const char *key, int key_size, char *value, int &value_size) {
+    if(NULL==key || key_size<=0) return -1;
+    //首先读取slot_count
+    slot_page_header_t header;
+    memcpy(&header, m_page->GetData()+PAGE_HEADER_SIZE, sizeof(slot_page_header_t));
+    int slot_count = header.slot_count;
+
+    //遍历所有的key
+    for(int i=0; i<slot_count; i++) {
+        slot_t slot;
+        int ret = GetSlot(i, &slot);
+        if(-1 == ret) return -1;
+        char *data = m_page->GetData();
+        if(0 == memcmp(data+slot.offset+sizeof(int), key, key_size) ) {
+            memcpy(&value_size, data+slot.offset+sizeof(int)+key_size, sizeof(int));
+            memcpy(value, data+slot.offset+sizeof(int)*2+key_size, value_size);
+            return i;
+        }
+    }
+    return -1;
 }
 
 int SlotPage::GetSlot(int slot_id, slot_t* slot) {

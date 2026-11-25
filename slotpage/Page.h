@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 #define PAGE_HEADER_SIZE 16
-//#define SLOT_PAGE_HEADER_SIZE 8
 #define PAGE_SIZE 4096
 #define PAGE_DATA_SIZE PAGE_SIZE-PAGE_HEADER_SIZE
 

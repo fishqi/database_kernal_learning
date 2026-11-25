@@ -28,7 +28,15 @@ int main() {
         return -1;
     }
     printf("insert data %d success\n", slot_id);
-    
+
+    slot_id = slot_page->InsertData("school", 6, "linzi", 5);
+    if(-1 == ret) {
+        printf("insert data error\n");
+        return -1;
+    }
+    printf("insert data %d success\n", slot_id);
+   
+    //read  key 
     char key[1024] = {0};
     char value[1024] = {0};
     int key_size = 0;
@@ -50,4 +58,22 @@ int main() {
         return 0;
     }
     printf("read key is %s key size is %d value is %s value size is %d\n", key, key_size, value, value_size);
+    
+    //find key
+    memset(value, 0, 1024);
+    ret = slot_page->FindKey("school", 6, value, value_size);
+    if(-1 == ret) {
+        printf("find key error\n");
+        return 0;
+    }
+    printf("find key's  value is %s value size is %d\n", value, value_size);
+    
+    memset(value, 0, 1024);
+    ret = slot_page->FindKey("age", 3, value, value_size);
+    if(-1 == ret) {
+        printf("find key error\n");
+        return 0;
+    }
+    printf("find key's  value is %s value size is %d\n", value, value_size);
+
 }
